@@ -4,15 +4,14 @@ class BinarySearchTree {
    }
 
    insertNode (data, left = null, right = null) {
+      // create node object - could be seperate class
       let node = {
          data,
          left,
          right
       }
-
       let currentNode
-
-      if (!this.root) {
+      if (this.root === null) {
          this.root = node
       } else {
          currentNode = this.root
@@ -38,14 +37,26 @@ class BinarySearchTree {
       }
    }
 
+   // unfinished
    removeNode (data) {
       if (!this.root) {
          console.log('Tree is empty!')
       } else {
          let currentNode = this.root
          while (currentNode) {
-            if (data < current) {
+            if (data === currentNode.data) {
+               if (currentNode.left === null && currentNode.right === null) {
+                  currentNode.data = null
+                  break
+               } else if (currentNode.left != null && currentNode.right === null) {
+                  currentNode.data = currentNode.left
+                  break
+               } else if (currentNode.left === null && currentNode.right != null) {
+                  currentNode.data = currentNode.right
+                  break
+               } else {
 
+               }
             }
          }
       }
