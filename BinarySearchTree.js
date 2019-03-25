@@ -3,7 +3,7 @@ class BinarySearchTree {
       this.root = null
    }
 
-   // accepts value, returns true if insertion successful, false if not
+   // accepts insertion value, returns true if insertion successful, false if not
    insert (value) {
       if (typeof value === 'number') {
          // create node object to be inserted
@@ -14,7 +14,7 @@ class BinarySearchTree {
          }
 
          if (this.root === null) {
-            // if tree is empty, insert as root node
+            // if tree is empty, insert newNode as root node
             this.root = newNode
             console.log(`Inserted root node: ${this.root.value}`)
          } else {
@@ -45,15 +45,15 @@ class BinarySearchTree {
             }
          }
       } else {
-         console.log('Insert failed: NaN')
+         console.log(`Insert failed: '${value}' is not a number`)
          return false
       }
    }
 
-   // accepts value, returns null or found node object
+   // accepts search value, returns null or found node object
    search (value) {
       if (this.root === null) {
-         console.log('Tree is empty!')
+         console.log('No root node!')
          return null
       } else {
          let currentNode = this.root
@@ -105,7 +105,7 @@ class BinarySearchTree {
       }
    }
 
-   // helper for removeNode
+   // helper for removeNode that finds minimum viable node in right subtree of node to be removed (recursive)
    // accepts node object, no return
    findMinNode (node) {
       if (node.left === null) {
@@ -115,10 +115,20 @@ class BinarySearchTree {
       }
    }
 
+   // returns sum of all nodes (recursive)
+   sumNodes (currentNode = this.root) {
+      if (currentNode === null) {
+         return 0
+      } else {
+         return currentNode.value + this.sumNodes(currentNode.left) + this.sumNodes(currentNode.right)
+      }
+   }
 }
+
 
 let BST = new BinarySearchTree()
 
+// test insert, remove, search
 BST.insert('apple')
 BST.insert(10)
 BST.insert(5)
@@ -129,3 +139,8 @@ BST.remove(10)
 BST.search(10)
 BST.remove(5)
 BST.search(5)
+
+// test summing all nodes
+console.log(BST.sumNodes())
+
+
