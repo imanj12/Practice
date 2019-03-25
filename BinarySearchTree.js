@@ -3,7 +3,9 @@ class BinarySearchTree {
       this.root = null
    }
 
-   // accepts insertion value, returns true if insertion successful, false if not
+   // Input: insertion value 
+   // Return: true if insertion successful, false if not
+   // iterative
    insert (value) {
       if (typeof value === 'number') {
          // create node object to be inserted
@@ -50,7 +52,33 @@ class BinarySearchTree {
       }
    }
 
-   // accepts search value, returns null or found node object
+   // same as above, but recursive
+   insertRecurr (value) {
+      let newNode = {
+         value,
+         left: null,
+         right: null
+      }
+
+      function insertNodeRecurr (node, direction) {
+         if (node[direction] === null) {
+            node[direction] = newNode
+            console.log(`Inserted: ${node[direction].value}`)
+            return true
+         } else if (newNode.value < node[direction].value) {
+            insertNodeRecurr(node[direction], 'left')
+         } else if (newNode.value > node[direction].value) {
+            insertNodeRecurr(node[direction], 'right')
+         } else if (newNode.value === node.value) {
+            console.log('Node already exists')
+            return false
+         }
+      }
+      insertNodeRecurr(this, 'root')
+   }
+
+   // Input: search value 
+   // Return: null or found node object
    search (value) {
       if (this.root === null) {
          console.log('No root node!')
@@ -72,7 +100,8 @@ class BinarySearchTree {
       }
    }
 
-   // accepts value, searches by value, then removes found node object, returns true if successful, false if not
+   // Input: value of node object to be removed
+   // Return: True if removal successful, false if not
    remove (value) {
       let currentNode = this.search(value)
       if (currentNode) {
@@ -105,8 +134,10 @@ class BinarySearchTree {
       }
    }
 
-   // helper for removeNode that finds minimum viable node in right subtree of node to be removed (recursive)
-   // accepts node object, no return
+   // helper for removeNode that finds value of
+   // Input: Node object
+   // Return: Node object
+   // recursive
    findMinNode (node) {
       if (node.left === null) {
          return node
@@ -115,7 +146,10 @@ class BinarySearchTree {
       }
    }
 
-   // returns sum of all nodes (recursive)
+   // returns sum of all nodes
+   // Input: Default argument of root node (user inputs nothing when invoked)
+   // Return: Sum of input node value and all child nodes
+   // recursive
    sumNodes (currentNode = this.root) {
       if (currentNode === null) {
          return 0
@@ -125,16 +159,15 @@ class BinarySearchTree {
    }
 }
 
-
 let BST = new BinarySearchTree()
 
 // test insert, remove, search
-BST.insert('apple')
-BST.insert(10)
-BST.insert(5)
-BST.insert(15)
-BST.insert(20)
-BST.insert(13)
+// BST.insertRecurr('apple')
+BST.insertRecurr(10)
+BST.insertRecurr(5)
+BST.insertRecurr(15)
+BST.insertRecurr(20)
+BST.insertRecurr(13)
 BST.remove(10)
 BST.search(10)
 BST.remove(5)
