@@ -69,7 +69,7 @@ class BinarySearchTree {
             insertNodeRecurr(node[direction], 'left')
          } else if (newNode.value > node[direction].value) {
             insertNodeRecurr(node[direction], 'right')
-         } else if (newNode.value === node.value) {
+         } else if (newNode.value === node[direction].value) {
             console.log('Node already exists')
             return false
          }
@@ -167,6 +167,7 @@ BST.insertRecurr(10)
 BST.insertRecurr(5)
 BST.insertRecurr(15)
 BST.insertRecurr(20)
+BST.insertRecurr(13)
 BST.insertRecurr(13)
 BST.remove(10)
 BST.search(10)
