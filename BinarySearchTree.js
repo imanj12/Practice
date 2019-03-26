@@ -60,21 +60,22 @@ class BinarySearchTree {
          right: null
       }
 
+      insertNodeRecurr(this, 'root')
+
       function insertNodeRecurr (node, direction) {
          if (node[direction] === null) {
             node[direction] = newNode
             console.log(`Inserted: ${node[direction].value}`)
             return true
          } else if (newNode.value < node[direction].value) {
-            insertNodeRecurr(node[direction], 'left')
+            return insertNodeRecurr(node[direction], 'left')
          } else if (newNode.value > node[direction].value) {
-            insertNodeRecurr(node[direction], 'right')
+            return insertNodeRecurr(node[direction], 'right')
          } else if (newNode.value === node[direction].value) {
             console.log('Node already exists')
             return false
          }
       }
-      insertNodeRecurr(this, 'root')
    }
 
    // Input: search value 
