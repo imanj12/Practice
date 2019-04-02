@@ -14,12 +14,18 @@ class LinkedList {
    }
 
    printList() {
-      
+      let arr = []
+      let currentNode = this.head
+      while (currentNode) {
+         arr.push(currentNode.value)
+         currentNode = currentNode.next
+      }
+      console.log(arr)
    }
 
    append(value) {
-      const node = new Node(value)
-      if (this.head == null) {
+      let node = new Node(value)
+      if (this.head === null) {
          this.head = node
          this.tail = node
       } else {
@@ -56,7 +62,25 @@ class LinkedList {
       }
       return false
    }
+
+   insertAfter(value) {
+
+   }
+
+   insertBefore(value) {
+
+   }
+
+   index(i) {
+
+   }
+
 }
 
 const ll = new LinkedList()
-ll.insert(5)
+ll.append(5)
+ll.append(10)
+ll.append(15)
+ll.printList()
+ll.remove(10)
+ll.printList()
