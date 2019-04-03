@@ -64,17 +64,26 @@ class LinkedList {
    }
 
    insertAfter(value) {
-
+      
    }
 
    insertBefore(value) {
 
    }
 
-   index(i) {
-
+   nodeAtIndex(i) {
+      if (!this.head || i > this.size) {
+         console.log("Index doesn't exist")
+         return false
+      } else {
+         let currentNode = this.head
+         while (i--) {
+            currentNode = currentNode.next
+         }
+         console.log(currentNode.value)
+         return currentNode
+      }
    }
-
 }
 
 const ll = new LinkedList()
@@ -84,3 +93,4 @@ ll.append(15)
 ll.printList()
 ll.remove(10)
 ll.printList()
+ll.nodeAtIndex(2)
