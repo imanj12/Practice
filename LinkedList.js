@@ -24,15 +24,21 @@ class LinkedList {
    }
 
    append(value) {
-      let node = new Node(value)
-      if (this.head === null) {
-         this.head = node
-         this.tail = node
-      } else {
-         node.previous = this.tail
-         this.tail.next = node
-         this.tail = node
+      if (typeof value === 'number') {
+         let node = new Node(value)
+         if (this.head === null) {
+            this.head = node
+            this.tail = node
+         } else {
+            node.previous = this.tail
+            this.tail.next = node
+            this.tail = node
+         }
          this.size++
+         return true
+      } else {
+         console.log('Not a number')
+         return false
       }
    }
 
@@ -90,6 +96,7 @@ const ll = new LinkedList()
 ll.append(5)
 ll.append(10)
 ll.append(15)
+console.log(ll.size)
 ll.printList()
 ll.remove(10)
 ll.printList()
