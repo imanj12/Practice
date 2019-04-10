@@ -10,7 +10,8 @@ function customSort(arr) {
    })
    Object.keys(hist).sort((a,b) => {
       return hist[a] - hist[b]
-   }).forEach(key => {
+   })
+   .forEach(key => {
       for (let i=0;i<hist[key];i++) {
          sorted.push(key)
       }
