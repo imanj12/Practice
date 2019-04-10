@@ -2,13 +2,15 @@
 function closure(first, last, age) {
    let name = first + ' ' + last
 
-   return function () {
+   function speak() {
       console.log(`Hello, my name is ${name} and I am ${age}.`)
    }
+
+   return speak
 }
 
-let nameClosure = closure('Iman', 'Jawad', 29)
-nameClosure()
+let sayHello = closure('Iman', 'Jawad', 29)
+sayHello()
 
 
 // combines closure and IIFE
