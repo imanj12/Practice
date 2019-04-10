@@ -1,7 +1,7 @@
 function balancedString (str, openers, closers) {
 let stack = []
 
-for(char of str) {
+for(let char of str) {
    if (openers.includes(char)) {
       stack.push(char)
    } else if (closers.includes(char)) {
