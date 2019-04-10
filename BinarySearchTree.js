@@ -135,7 +135,7 @@ class BinarySearchTree {
       }
    }
 
-   // helper for removeNode that finds value of
+   // helper for removeNode that finds value of an acceptable node to replace a removed node and still keep tree structure
    // Input: Node object
    // Return: Node object
    // recursive
