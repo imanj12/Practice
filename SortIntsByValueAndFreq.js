@@ -13,11 +13,11 @@ function customSort(arr) {
    })
    .forEach(key => {
       for (let i=0;i<hist[key];i++) {
-         sorted.push(key)
+         sorted.push(parseInt(key))
       }
    })
    return sorted
 }
 
-let arr = [4,5,6,7,5,4,3]
+let arr = [4,5,6,7,5,4,3,1,1,1,1]
 console.log(customSort(arr))
