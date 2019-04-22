@@ -1,19 +1,23 @@
 function balancedString (str, openers, closers) {
-let stack = []
+   let stack = []
 
-for(let char of str) {
-   if (openers.includes(char)) {
-      stack.push(char)
-   } else if (closers.includes(char)) {
-      if (openers.indexOf(stack.pop()) !== closers.indexOf(char)) {
-      return false
+   for(let char of str) {
+      if (openers.includes(char)) {
+         stack.push(char)
+      } else if (closers.includes(char)) {
+         if (openers.indexOf(stack.pop()) !== closers.indexOf(char)) {
+            return false
+         }
       }
    }
-}
-return true
+   if (stack.length === 0) {
+      return true
+   } else {
+      return false
+   }
 }  
 
-let string = '()[aa]{1[]-}'
+let string = '((()'
 let openChars = ['(', '{', '[']
 let closeChars = [')', '}', ']']
 console.log(balancedString(string, openChars, closeChars))
