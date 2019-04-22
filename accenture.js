@@ -11,14 +11,14 @@ function printFirstLast(n) {
 }
 
 function printPrime(n) {
-   let array = []
-   for (let i = 1; i < n; i++) {
+   let primes = []
+   for (let i = 2; i < n; i++) {
       if (isPrime(i)) {
-         array.push(i)
+         primes.push(i)
       }
    }
    
-   console.log(array)
+   console.log(primes)
    
    function isPrime(num) {
       for (let i = 2; i < num; i++) {
