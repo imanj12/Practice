@@ -1,4 +1,4 @@
-class BinarySearchTree {
+export default class BinarySearchTree {
    constructor() {
       this.root = null
    }
